@@ -2,7 +2,6 @@ import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/controller/providers/otp_provider.dart';
 import 'package:cliffhub/controller/providers/signup_provider.dart';
 import 'package:cliffhub/core/constants/const.dart';
-import 'package:cliffhub/view/login_screen/log_in_screen.dart';
 import 'package:cliffhub/view/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,10 @@ class VerifyAccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<SignUpProvider>(context, listen: false);
     return Scaffold(
-      backgroundColor: kBlack,
+      appBar: AppBar(
+        backgroundColor: kWhite,
+      ),
+      backgroundColor: kWhite,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -32,7 +34,7 @@ class VerifyAccountScreen extends StatelessWidget {
                         const Text(
                           'Verify Account',
                           style: TextStyle(
-                              color: kWhite,
+                              color: kBlack,
                               fontFamily: 'FredokaOne',
                               fontSize: 22),
                         ),
@@ -43,8 +45,7 @@ class VerifyAccountScreen extends StatelessWidget {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please enter your mobile number';
-                            }
-                            else if(value.length<10){
+                            } else if (value.length < 10) {
                               return 'Please enter a valid number';
                             }
                             return null;
@@ -101,8 +102,8 @@ class VerifyAccountScreen extends StatelessWidget {
                           },
                         ),
                         kSize,
-                        Consumer2<SignUpProvider,OtpProvider>(
-                          builder: (context, value,value2, child) {
+                        Consumer2<SignUpProvider, OtpProvider>(
+                          builder: (context, value, value2, child) {
                             return value.isLoading
                                 ? const CircularProgressIndicator(
                                     strokeWidth: 2,
@@ -117,12 +118,11 @@ class VerifyAccountScreen extends StatelessWidget {
                                             formGlobalKey.currentState!.save();
 
                                             value.registerUser(context);
-                                            value2.sendOtp();
+                                            value2.sendOtp(value.phoneNo.text);
                                           }
                                         },
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color.fromARGB(
-                                              255, 3, 49, 134),
+                                          backgroundColor: kBlack,
                                         ),
                                         child: const Text(
                                           'Signup',
@@ -133,27 +133,6 @@ class VerifyAccountScreen extends StatelessWidget {
                                   );
                           },
                         ),
-                        kSize,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Already have an account?',
-                              style: TextStyle(color: kWhite),
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return LoginScreen();
-                                      },
-                                    ),
-                                  );
-                                },
-                                child: const Text('Signin')),
-                          ],
-                        )
                       ],
                     ),
                   ),

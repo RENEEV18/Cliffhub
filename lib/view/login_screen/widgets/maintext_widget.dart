@@ -11,18 +11,23 @@ class MainTextWidget extends StatelessWidget {
     return RichText(
       text: const TextSpan(
         text: 'C',
-        style: kTextStyle,
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 191, 0),
+          fontSize: 35,
+          fontFamily: 'FredokaOne',
+        ),
         children: [
           TextSpan(
             text: 'l',
-            style: TextStyle(
-                color: Colors.amber, fontSize: 30, fontFamily: 'FredokaOne'),
+            style: kTextStyle,
           ),
           TextSpan(text: 'iff', style: kTextStyle),
           TextSpan(
             text: 'h',
             style: TextStyle(
-                color: Colors.amber, fontSize: 30, fontFamily: 'FredokaOne'),
+                color: Color.fromARGB(255, 255, 191, 0),
+                fontSize: 30,
+                fontFamily: 'FredokaOne'),
           ),
           TextSpan(text: 'ub', style: kTextStyle),
         ],

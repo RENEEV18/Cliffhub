@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = Provider.of<LoginProvider>(context, listen: false);
     return Scaffold(
-      backgroundColor: kBlack,
+      backgroundColor: kWhite,
       body: SingleChildScrollView(
         child: Form(
           key: formGlobalKey,
@@ -109,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor:
-                                        const Color.fromARGB(255, 3, 49, 134),
+                                        const Color.fromARGB(255, 0, 0, 0),
                                   ),
                                   child: const Text(
                                     'Signin',
@@ -125,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         const Text(
                           "Don't have an account?",
-                          style: TextStyle(color: kWhite),
+                          style: TextStyle(color: kBlack),
                         ),
                         TextButton(
                           onPressed: () {

@@ -1,7 +1,7 @@
 import 'package:cliffhub/core/constants/const.dart';
 import 'package:cliffhub/model/sign_up_model/sign_up_model.dart';
 import 'package:cliffhub/services/signup_api_service/signup_services.dart';
-import 'package:cliffhub/view/login_screen/log_in_screen.dart';
+import 'package:cliffhub/view/otp_screen/otp_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignUpProvider extends ChangeNotifier {
@@ -33,7 +33,7 @@ class SignUpProvider extends ChangeNotifier {
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (context) {
-                return LoginScreen();
+                return const OtpScreen();
               },
             ),
           );
@@ -76,7 +76,7 @@ class SignUpProvider extends ChangeNotifier {
     lastName.clear();
     emailId.clear();
     password.clear();
-    phoneNo.clear();
+    // phoneNo.clear();
     confirmPassword.clear();
     username.clear();
   }

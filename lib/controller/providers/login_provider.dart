@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cliffhub/core/constants/const.dart';
 import 'package:cliffhub/model/login_model/login_model.dart';
 import 'package:cliffhub/services/login_api_service/login_service.dart';
@@ -42,21 +40,21 @@ class LoginProvider extends ChangeNotifier {
   bool obscureText = true;
   Icon icon = const Icon(
     Icons.visibility_off,
-    color: kWhite,
+    color: kBlack,
   );
 
   void visibility() {
     if (obscureText == false) {
       icon = const Icon(
         Icons.visibility_off,
-        color: kWhite,
+        color: kBlack,
       );
       obscureText = true;
       notifyListeners();
     } else {
       icon = const Icon(
         Icons.visibility,
-        color: kWhite,
+        color: kBlack,
       );
       obscureText = false;
       notifyListeners();

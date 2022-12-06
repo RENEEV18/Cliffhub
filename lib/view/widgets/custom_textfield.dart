@@ -5,9 +5,12 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     required this.text,
-    this.suffix, required this.controller, required this.validator, this.obscureText,
+    this.suffix,
+    required this.controller,
+    required this.validator,
+    this.obscureText,
   }) : super(key: key);
-  
+
   final String text;
   final Widget? suffix;
   final TextEditingController controller;
@@ -18,12 +21,10 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: TextFormField(
-        obscureText: obscureText?? false,
+        obscureText: obscureText ?? false,
         controller: controller,
-        validator:validator,
-        style: const TextStyle(color: kWhite),
+        validator: validator,
         decoration: InputDecoration(
-          
           suffixIcon: suffix,
           label: Text(
             text,
@@ -35,7 +36,7 @@ class CustomTextField extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(color: kWhite),
+            borderSide: const BorderSide(color: kBlack),
           ),
         ),
       ),

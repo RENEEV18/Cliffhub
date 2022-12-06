@@ -14,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<SignUpProvider>(context, listen: false);
     return Scaffold(
-      backgroundColor: kBlack,
+      backgroundColor: kWhite,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -23,15 +23,18 @@ class SignUpScreen extends StatelessWidget {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
+                  Image.asset(
+                    'assets/images/ezgif.com-gif-maker (3).png',
+                    height: 160,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        kContainerSize,
                         const Text(
                           'Create Account',
                           style: TextStyle(
-                              color: kWhite,
+                              color: kBlack,
                               fontFamily: 'FredokaOne',
                               fontSize: 22),
                         ),
@@ -90,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                                 onPressed: () {
                                   if (formGlobalKey.currentState!.validate()) {
                                     formGlobalKey.currentState!.save();
-                                    Navigator.of(context).pushReplacement(
+                                    Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) {
                                           return VerifyAccountScreen();
@@ -100,9 +103,7 @@ class SignUpScreen extends StatelessWidget {
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 3, 49, 134),
-                                ),
+                                    backgroundColor: kBlack),
                                 child: const Icon(
                                   Icons.navigate_next,
                                   color: kWhite,
@@ -118,7 +119,7 @@ class SignUpScreen extends StatelessWidget {
                           children: [
                             const Text(
                               'Already have an account?',
-                              style: TextStyle(color: kWhite),
+                              style: TextStyle(color: kBlack),
                             ),
                             TextButton(
                               onPressed: () {

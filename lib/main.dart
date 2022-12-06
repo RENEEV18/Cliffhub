@@ -1,8 +1,8 @@
 import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/controller/providers/otp_provider.dart';
 import 'package:cliffhub/controller/providers/signup_provider.dart';
-import 'package:cliffhub/view/introduction_screen/intro_screen.dart';
-import 'package:cliffhub/view/otp_screen/otp_screen.dart';
+import 'package:cliffhub/controller/providers/verify_otp_provider.dart';
+import 'package:cliffhub/view/introduction_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,6 @@ void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Color.fromARGB(255, 2, 2, 2),
-    
   ));
 }
 
@@ -28,8 +27,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => LoginProvider(),
         ),
-         ChangeNotifierProvider(
+        ChangeNotifierProvider(
           create: (context) => OtpProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => VerifyOtpProvider(),
         ),
       ],
       child: MaterialApp(
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         debugShowCheckedModeBanner: false,
-        home: const IntroScreen(),
+        home: const WelcomeScreen(),
       ),
     );
   }
