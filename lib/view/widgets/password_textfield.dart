@@ -18,7 +18,7 @@ class PasswordField extends StatelessWidget {
             obscureText: value.obscureText,
             controller: controller,
             validator: validator,
-            style: const TextStyle(color: kWhite),
+            style: const TextStyle(color: kBlack),
             decoration: InputDecoration(
               suffixIcon: IconButton(
                 onPressed: () {

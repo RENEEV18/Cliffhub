@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cliffhub/core/api/api_baseurl.dart';
 import 'package:cliffhub/core/api/api_endpoint.dart';
 import 'package:cliffhub/model/login_model/login_model.dart';
+import 'package:cliffhub/utils/exceptions/dio_exceptions.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -25,6 +26,7 @@ class LoginServices {
       }
     } on DioError catch (e) {
       log(e.message);
+      DioException().dioError(e, context);
     }
     return null;
   }

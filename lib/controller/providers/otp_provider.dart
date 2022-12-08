@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 class OtpProvider extends ChangeNotifier {
   bool isLoading = false;
   OtpServices otpServices = OtpServices();
-  void sendOtp(String number) {
+  void sendOtp(String number, BuildContext context) {
     isLoading = true;
     notifyListeners();
 
     SendOtpModel sendOtpModel = SendOtpModel(mobile: number);
     log('otp send');
-    otpServices.sendOtp(sendOtpModel);
+    otpServices.sendOtp(sendOtpModel, context);
     isLoading = false;
     notifyListeners();
   }

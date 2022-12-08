@@ -14,15 +14,21 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-           
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:  [
-                 
-                 const MainTextWidget(),
-                  IconButton(onPressed: (){}, 
-                  icon: const Icon(Icons.message,color: kWhite,),),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const MainTextWidget(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.message,
+                        color: kBlack,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               kSize,
               SizedBox(
@@ -31,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return const CircleAvatar(
                       radius: 40,
-                      backgroundColor: Colors.grey,
+                      backgroundColor: kGrey,
                     );
                   },
                   itemCount: 20,

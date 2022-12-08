@@ -47,7 +47,7 @@ class SignUpScreen extends StatelessWidget {
                               return 'Please enter your first name';
                             }
                             return null;
-                          },
+                          }, keyboard: TextInputType.name,
                         ),
                         kSize,
                         CustomTextField(
@@ -58,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
                               return 'Please enter your last name';
                             }
                             return null;
-                          },
+                          }, keyboard: TextInputType.name,
                         ),
                         kSize,
                         CustomTextField(
@@ -69,7 +69,7 @@ class SignUpScreen extends StatelessWidget {
                               return 'Please enter your username';
                             }
                             return null;
-                          },
+                          }, keyboard: TextInputType.name,
                         ),
                         kSize,
                         CustomTextField(
@@ -80,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                               return 'Please enter your email';
                             }
                             return null;
-                          },
+                          }, keyboard: TextInputType.emailAddress,
                         ),
                         kSize,
                         Padding(

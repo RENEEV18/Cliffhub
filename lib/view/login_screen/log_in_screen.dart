@@ -1,5 +1,6 @@
 import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/core/constants/const.dart';
+import 'package:cliffhub/view/forgot_password/forgot_password.dart';
 import 'package:cliffhub/view/widgets/clippath.dart';
 import 'package:cliffhub/view/widgets/custom_textfield.dart';
 import 'package:cliffhub/view/login_screen/widgets/maintext_widget.dart';
@@ -63,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                         }
                         return null;
                       },
+                      keyboard: TextInputType.name,
                     ),
                     kSize,
                     PasswordField(
@@ -85,7 +87,13 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           const SizedBox(),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ForgotPasswordScreen(),
+                                ),
+                              );
+                            },
                             child: const Text('Forgot password?'),
                           ),
                         ],

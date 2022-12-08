@@ -1,3 +1,4 @@
+import 'package:cliffhub/controller/providers/forgot_password.dart';
 import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/controller/providers/otp_provider.dart';
 import 'package:cliffhub/controller/providers/signup_provider.dart';
@@ -10,7 +11,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: Color.fromARGB(255, 2, 2, 2),
+    systemNavigationBarColor: Color.fromARGB(255, 255, 255, 255),
   ));
 }
 
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => VerifyOtpProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ForgotPasswordProvider(),
         ),
       ],
       child: MaterialApp(

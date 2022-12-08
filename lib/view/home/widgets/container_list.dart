@@ -15,7 +15,7 @@ class ContainerListWidget extends StatelessWidget {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height * 0.50,
-                  color: kWhite,
+                  color: kGrey,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,21 +26,21 @@ class ContainerListWidget extends StatelessWidget {
                           onPressed: () {},
                           icon: const Icon(
                             Icons.favorite_border,
-                            color: kWhite,
+                            color: kBlack,
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(
                             Icons.messenger_outline_rounded,
-                            color: kWhite,
+                            color: kBlack,
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(
                             Icons.near_me_outlined,
-                            color: kWhite,
+                            color: kBlack,
                           ),
                         ),
                       ],
@@ -49,7 +49,7 @@ class ContainerListWidget extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.bookmark_outline,
-                        color: kWhite,
+                        color: kBlack,
                       ),
                     ),
                   ],

@@ -57,14 +57,14 @@ class SignUpProvider extends ChangeNotifier {
     if (obscureText == false) {
       icon = const Icon(
         Icons.visibility_off,
-        color: kWhite,
+        color: kBlack,
       );
       obscureText = true;
       notifyListeners();
     } else {
       icon = const Icon(
         Icons.visibility,
-        color: kWhite,
+        color: kBlack,
       );
       obscureText = false;
       notifyListeners();

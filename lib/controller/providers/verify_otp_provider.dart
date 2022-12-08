@@ -21,19 +21,8 @@ class VerifyOtpProvider extends ChangeNotifier {
 
     SendOtpModel sendOtpModel = SendOtpModel(mobile: number);
 
-    verifyOtpService.verifyOtp(sendOtpModel, code).then(
-      (value) {
-        if (value != null) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) {
-                return LoginScreen();
-              },
-            ),
-          );
-        }
-      },
-    );
+    verifyOtpService.verifyOtp(sendOtpModel, code, context);
+
     isLoading = false;
     notifyListeners();
   }

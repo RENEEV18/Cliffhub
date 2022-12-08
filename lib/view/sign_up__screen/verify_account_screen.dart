@@ -50,6 +50,7 @@ class VerifyAccountScreen extends StatelessWidget {
                             }
                             return null;
                           },
+                          keyboard: TextInputType.phone,
                         ),
                         kSize,
                         Consumer<SignUpProvider>(
@@ -73,6 +74,7 @@ class VerifyAccountScreen extends StatelessWidget {
                                 }
                                 return null;
                               },
+                              keyboard: TextInputType.visiblePassword,
                             );
                           },
                         ),
@@ -98,6 +100,7 @@ class VerifyAccountScreen extends StatelessWidget {
                                 }
                                 return null;
                               },
+                              keyboard: TextInputType.visiblePassword,
                             );
                           },
                         ),
@@ -112,24 +115,26 @@ class VerifyAccountScreen extends StatelessWidget {
                                     width: MediaQuery.of(context).size.width *
                                         0.85,
                                     child: ElevatedButton(
-                                        onPressed: () {
-                                          if (formGlobalKey.currentState!
-                                              .validate()) {
-                                            formGlobalKey.currentState!.save();
+                                      onPressed: () {
+                                        if (formGlobalKey.currentState!
+                                            .validate()) {
+                                          formGlobalKey.currentState!.save();
 
-                                            value.registerUser(context);
-                                            value2.sendOtp(value.phoneNo.text);
-                                          }
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: kBlack,
+                                          value.registerUser(context);
+                                          value2.sendOtp(
+                                              value.phoneNo.text, context);
+                                        }
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: kBlack,
+                                      ),
+                                      child: const Text(
+                                        'Signup',
+                                        style: TextStyle(
+                                          color: kWhite,
                                         ),
-                                        child: const Text(
-                                          'Signup',
-                                          style: TextStyle(
-                                            color: kWhite,
-                                          ),
-                                        )),
+                                      ),
+                                    ),
                                   );
                           },
                         ),

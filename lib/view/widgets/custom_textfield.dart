@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
     this.suffix,
     required this.controller,
     required this.validator,
-    this.obscureText,
+    this.obscureText, required this.keyboard,
   }) : super(key: key);
 
   final String text;
@@ -16,12 +16,14 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?) validator;
   final bool? obscureText;
+  final TextInputType keyboard;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: TextFormField(
         obscureText: obscureText ?? false,
+        keyboardType: keyboard,
         controller: controller,
         validator: validator,
         decoration: InputDecoration(
