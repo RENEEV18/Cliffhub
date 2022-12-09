@@ -1,11 +1,12 @@
 import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/core/constants/const.dart';
 import 'package:cliffhub/view/forgot_password/forgot_password.dart';
+import 'package:cliffhub/view/sign_up__screen/sign_up_screen.dart';
 import 'package:cliffhub/view/widgets/clippath.dart';
 import 'package:cliffhub/view/widgets/custom_textfield.dart';
 import 'package:cliffhub/view/login_screen/widgets/maintext_widget.dart';
-import 'package:cliffhub/view/sign_up__screen/sign_up_screen.dart';
 import 'package:cliffhub/view/widgets/password_textfield.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,11 +34,11 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(30.0),
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 30),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -80,24 +81,26 @@ class LoginScreen extends StatelessWidget {
                         return null;
                       },
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const SizedBox(),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordScreen(),
-                                ),
-                              );
-                            },
-                            child: const Text('Forgot password?'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const SizedBox(),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ForgotPasswordScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.bold),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     Consumer<LoginProvider>(
                       builder: (context, value, child) {
@@ -128,26 +131,29 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                     kSize,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Don't have an account?",
-                          style: TextStyle(color: kBlack),
+                    RichText(
+                      text: TextSpan(
+                        text: "Don't have an account? ",
+                        style: const TextStyle(
+                          color: kBlack,
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return SignUpScreen();
-                                },
-                              ),
-                            );
-                          },
-                          child: const Text('Create Account'),
-                        ),
-                      ],
+                        children: [
+                          TextSpan(
+                            text: ' Create Account',
+                            style: const TextStyle(color: kBlue),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return SignUpScreen();
+                                    },
+                                  ),
+                                );
+                              },
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

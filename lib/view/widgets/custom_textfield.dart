@@ -8,7 +8,9 @@ class CustomTextField extends StatelessWidget {
     this.suffix,
     required this.controller,
     required this.validator,
-    this.obscureText, required this.keyboard,
+    this.obscureText,
+    required this.keyboard,
+    this.onChanged,
   }) : super(key: key);
 
   final String text;
@@ -17,29 +19,28 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?) validator;
   final bool? obscureText;
   final TextInputType keyboard;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: TextFormField(
-        obscureText: obscureText ?? false,
-        keyboardType: keyboard,
-        controller: controller,
-        validator: validator,
-        decoration: InputDecoration(
-          suffixIcon: suffix,
-          label: Text(
-            text,
-            style: kUsernameStyle,
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(color: kBlack),
-          ),
+    return TextFormField(
+      onChanged: onChanged,
+      obscureText: obscureText ?? false,
+      keyboardType: keyboard,
+      controller: controller,
+      validator: validator,
+      decoration: InputDecoration(
+        suffixIcon: suffix,
+        label: Text(
+          text,
+          style: kUsernameStyle,
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: const BorderSide(color: kBlack),
         ),
       ),
     );

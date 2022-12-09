@@ -1,3 +1,4 @@
+import 'package:cliffhub/controller/providers/email_validator.dart';
 import 'package:cliffhub/controller/providers/forgot_password.dart';
 import 'package:cliffhub/controller/providers/login_provider.dart';
 import 'package:cliffhub/controller/providers/otp_provider.dart';
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ForgotPasswordProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => EmailValidatorProvider(),
         ),
       ],
       child: MaterialApp(

@@ -1,4 +1,4 @@
-import 'package:cliffhub/services/forgot_password/create_password.dart';
+import 'package:cliffhub/services/forgot_password_api_service/create_password.dart';
 import 'package:cliffhub/view/login_screen/log_in_screen.dart';
 import 'package:flutter/material.dart';
 

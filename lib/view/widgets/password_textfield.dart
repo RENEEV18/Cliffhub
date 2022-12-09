@@ -10,38 +10,35 @@ class PasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: Consumer<LoginProvider>(
-        builder: (context, value, child) {
-          return TextFormField(
-            obscureText: value.obscureText,
-            controller: controller,
-            validator: validator,
-            style: const TextStyle(color: kBlack),
-            decoration: InputDecoration(
-              suffixIcon: IconButton(
-                onPressed: () {
-                  value.visibility();
-                },
-                icon: value.icon,
-              ),
-              label: const Text(
-                'Password',
-                style: kUsernameStyle,
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(color: kBlack),
-              ),
+    return Consumer<LoginProvider>(
+      builder: (context, value, child) {
+        return TextFormField(
+          obscureText: value.obscureText,
+          controller: controller,
+          validator: validator,
+          style: const TextStyle(color: kBlack),
+          decoration: InputDecoration(
+            suffixIcon: IconButton(
+              onPressed: () {
+                value.visibility();
+              },
+              icon: value.icon,
             ),
-          );
-        },
-      ),
+            label: const Text(
+              'Password',
+              style: kUsernameStyle,
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: kBlack),
+            ),
+          ),
+        );
+      },
     );
   }
 }
